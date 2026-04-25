@@ -78,7 +78,7 @@
   }
 
   .home-avatar {
-    @apply size-16 rounded-full;
+    @apply size-12 rounded-full;
   }
 
   .home-user-name {
@@ -86,7 +86,7 @@
   }
 
   .home-add-icon {
-    @apply size-12;
+    @apply size-12 p-4 rounded-full border border-primary/20;
   }
 
   .home-balance-card {
