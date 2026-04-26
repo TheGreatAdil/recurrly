@@ -57,9 +57,10 @@ export default function SignInScreen() {
             router.replace(url as Href);
           },
         });
-      } else if (signIn.status === "needs_second_factor") {
-        // MFA — handled by the verification UI below
-      } else if (signIn.status === "needs_client_trust") {
+      } else if (
+        signIn.status === "needs_second_factor" ||
+        signIn.status === "needs_client_trust"
+      ) {
         const emailCodeFactor = signIn.supportedSecondFactors?.find(
           (factor: any) => factor.strategy === "email_code",
         );
@@ -322,7 +323,7 @@ export default function SignInScreen() {
 
           {/* Footer Link */}
           <View className="auth-link-row">
-            <Text className="auth-link-copy">Don't have an account?</Text>
+            <Text className="auth-link-copy">{"Don't have an account?"}</Text>
             <Link href="/(auth)/sign-up" asChild>
               <Pressable hitSlop={8}>
                 <Text className="auth-link">Create one</Text>

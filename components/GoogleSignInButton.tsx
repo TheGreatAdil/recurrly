@@ -1,3 +1,4 @@
+import googleIcon from "@/assets/icons/google.png";
 import { useSignInWithGoogle } from "@clerk/expo/google";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -26,10 +27,13 @@ export default function GoogleSignInButton({
       }
     } catch (err: any) {
       // User cancelled – not an error
+      const code = (err?.code ?? "").toString().toLowerCase();
+      const msg = (err?.message ?? "").toLowerCase();
       if (
-        err?.code === "SIGN_IN_CANCELLED" ||
-        err?.code === "-5" ||
-        err?.message?.includes("cancelled")
+        code === "sign_in_cancelled" ||
+        code === "-5" ||
+        msg.includes("cancelled") ||
+        msg.includes("canceled")
       ) {
         return;
       }
@@ -55,9 +59,7 @@ export default function GoogleSignInButton({
       ) : (
         <>
           <Image
-            source={{
-              uri: "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg",
-            }}
+            source={googleIcon}
             className="size-5"
             resizeMode="contain"
           />
