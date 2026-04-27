@@ -1,50 +1,38 @@
-# Welcome to your Expo app 👋
+# Recurrly
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 📖 About The Project
 
-## Get started
+Recurrly is a subscription management application built as my introduction to React Native. It helps users keep track of their recurring subscriptions in one clean, beautiful interface. 
 
-1. Install dependencies
+This project was built following the excellent tutorial by **JavaScript Mastery**: [React Native Full Course 2026](https://www.youtube.com/watch?v=4nVoLX2taFg) 
 
-   ```bash
-   npm install
-   ```
+### 📸 Screenshots
 
-2. Start the app
+<div align="center">
+  <img width="220" alt="Login" src="https://github.com/user-attachments/assets/b51531d2-8351-456a-bd92-d7afc173d10c" />
+  <img width="220" alt="Home" src="https://github.com/user-attachments/assets/35227fe5-c5a0-45d7-b2f1-ce71f5c9c571" />
+  <img width="220" alt="Subscriptions" src="https://github.com/user-attachments/assets/fd48fbb8-2bb3-4387-9cba-059693ffbcd1" />
+  <img width="220" alt="Monthly Insights" src="https://github.com/user-attachments/assets/174c5efe-3186-4ab7-9b08-65c7c7564a5f" />
+</div>
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+## 🧠 What I Learned
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Building this project was a fantastic dive into mobile development. Here are some of the key concepts and technologies I picked up along the way:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **React Native & Expo:** Setting up a robust development environment, understanding the mobile application lifecycle, and utilizing Expo's powerful SDK to streamline development.
+- **File-Based Routing:** Using **Expo Router** to manage navigation between screens seamlessly, including tab navigation and managing protected routes.
+- **Styling with NativeWind:** Applying utility-first CSS (Tailwind CSS) directly in React Native components, making UI development significantly faster and visually consistent.
+- **Authentication:** Integrating **Clerk** for secure user authentication, specifically implementing Google OAuth flows and email/password sign-ins within a mobile context.
+- **Component Design:** Building robust and reusable React Native components (like custom `SubscriptionCard` and `UpcomingSubscriptionCard`) to keep the codebase modular.
+- **Mobile Polish:** Handling safe areas (`react-native-safe-area-context`) to ensure the app looks great across different devices and screen notches, along with integrating custom fonts and vector icons.
 
-## Get a fresh project
+## 🛠️ Tech Stack
 
-When you're ready, run:
+- **Framework:** [React Native](https://reactnative.dev/) with [Expo](https://expo.dev/)
+- **Routing:** [Expo Router](https://docs.expo.dev/router/introduction/)
+- **Styling:** [NativeWind v4](https://www.nativewind.dev/) (Tailwind CSS for React Native)
+- **Authentication:** [Clerk Expo](https://clerk.com/docs/quickstarts/expo)
+- **Icons & Typography:** Expo Vector Icons & Custom Fonts
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# *Built as a first step into the world of React Native.*
