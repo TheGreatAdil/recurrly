@@ -302,7 +302,7 @@ export default function SignInScreen() {
                 )}
               </View>
 
-              {localError ? (
+              {!clerkErrors && localError ? (
                 <Text className="auth-error">{localError}</Text>
               ) : null}
 
