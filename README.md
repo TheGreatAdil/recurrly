@@ -9,10 +9,10 @@ This project was built following the excellent tutorial by **JavaScript Mastery*
 ### 📸 Screenshots
 
 <div align="center">
-  <img width="220" alt="Login" src="https://github.com/user-attachments/assets/b51531d2-8351-456a-bd92-d7afc173d10c" />
-  <img width="220" alt="Home" src="https://github.com/user-attachments/assets/35227fe5-c5a0-45d7-b2f1-ce71f5c9c571" />
-  <img width="220" alt="Subscriptions" src="https://github.com/user-attachments/assets/fd48fbb8-2bb3-4387-9cba-059693ffbcd1" />
-  <img width="220" alt="Monthly Insights" src="https://github.com/user-attachments/assets/174c5efe-3186-4ab7-9b08-65c7c7564a5f" />
+  <img width="180" alt="Login" src="https://github.com/user-attachments/assets/b51531d2-8351-456a-bd92-d7afc173d10c" />
+  <img width="180" alt="Home" src="https://github.com/user-attachments/assets/35227fe5-c5a0-45d7-b2f1-ce71f5c9c571" />
+  <img width="180" alt="Subscriptions" src="https://github.com/user-attachments/assets/fd48fbb8-2bb3-4387-9cba-059693ffbcd1" />
+  <img width="180" alt="Monthly Insights" src="https://github.com/user-attachments/assets/174c5efe-3186-4ab7-9b08-65c7c7564a5f" />
 </div>
 
 
