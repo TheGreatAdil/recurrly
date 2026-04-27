@@ -23,23 +23,36 @@ const Insights = () => {
     { label: 'Mon', value: 0 },
     { label: 'Tue', value: 0 },
     { label: 'Wed', value: 0 },
-    { label: 'Thr', value: 0 },
+    { label: 'Thu', value: 0 },
     { label: 'Fri', value: 0 },
     { label: 'Sat', value: 0 },
     { label: 'Sun', value: 0 },
   ];
 
+  let totalExpenses = 0;
+
   subscriptions.forEach((sub) => {
+    if (sub.status === 'cancelled' || sub.status === 'paused') {
+      return;
+    }
+
+    let normalizedPrice = sub.price;
+    if (sub.billing === 'Yearly') {
+      normalizedPrice = sub.price / 12;
+    }
+
+    totalExpenses += normalizedPrice;
+
     // Determine the relevant date to plot (renewalDate or startDate)
     const dateToUse = sub.renewalDate || sub.startDate;
     if (dateToUse) {
       const day = dayjs(dateToUse).day(); // 0 is Sunday, 1 is Monday ... 6 is Saturday
       const index = day === 0 ? 6 : day - 1; // Map to 0-6 where 0 is Mon, 6 is Sun
-      chartData[index].value += sub.price;
+      chartData[index].value += normalizedPrice;
     }
   });
 
-  const totalExpenses = subscriptions.reduce((acc, sub) => acc + sub.price, 0);
+  const computedMonth = dayjs().format('MMMM YYYY');
 
   return (
     <SafeAreaView className="flex-1 bg-background" edges={['top', 'left', 'right']}>
@@ -60,8 +73,7 @@ const Insights = () => {
         
         <ExpensesCard 
           amount={`-${formatCurrency(totalExpenses, 'USD')}`}
-          date="March 2026"
-          percentage="+12%"
+          date={computedMonth}
         />
 
         <View className="flex-row justify-between items-center mb-4">

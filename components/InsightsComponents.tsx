@@ -6,11 +6,21 @@ import { theme } from '@/constants/theme';
 export const InsightsHeader = () => {
   return (
     <View className="flex-row justify-between items-center mb-8">
-      <Pressable className="w-11 h-11 rounded-[22px] border border-border justify-center items-center">
+      <Pressable 
+        className="w-11 h-11 rounded-[22px] border border-border justify-center items-center"
+        onPress={() => {}}
+        accessibilityRole="button"
+        accessibilityLabel="Go back"
+      >
         <Image source={icons.back} className="w-5 h-5 resize-contain" style={{ tintColor: theme.colors.primary }} />
       </Pressable>
       <Text className="text-lg font-bold text-primary">Monthly Insights</Text>
-      <Pressable className="w-11 h-11 rounded-[22px] border border-border justify-center items-center">
+      <Pressable 
+        className="w-11 h-11 rounded-[22px] border border-border justify-center items-center"
+        onPress={() => {}}
+        accessibilityRole="button"
+        accessibilityLabel="Open menu"
+      >
         <Image source={icons.menu} className="w-5 h-5 resize-contain" style={{ tintColor: theme.colors.primary }} />
       </Pressable>
     </View>
@@ -18,8 +28,13 @@ export const InsightsHeader = () => {
 };
 
 export const WeeklyChart = ({ data }: { data: { label: string; value: number }[] }) => {
-  const maxVal = Math.max(...data.map(d => d.value), 45);
-  const yAxisLabels = [maxVal, maxVal * 0.8, maxVal * 0.6, maxVal * 0.4, maxVal * 0.2, 0].map(v => Math.round(v));
+  const MIN_Y_AXIS_MAX = 45;
+  const maxVal = Math.max(...data.map(d => d.value), MIN_Y_AXIS_MAX);
+  const rawLabels = [maxVal, maxVal * 0.8, maxVal * 0.6, maxVal * 0.4, maxVal * 0.2, 0].map(v => Math.round(v));
+  const yAxisLabels = Array.from(new Set(rawLabels)).sort((a, b) => b - a);
+
+  const maxDataValue = Math.max(...data.map(d => d.value));
+  const maxIndex = data.findIndex(d => d.value === maxDataValue);
 
   return (
     <View className="bg-card rounded-3xl px-4 pt-10 pb-4 mb-4">
@@ -38,8 +53,6 @@ export const WeeklyChart = ({ data }: { data: { label: string; value: number }[]
         {/* Bars */}
         <View className="flex-row justify-between items-end absolute top-0 bottom-0 left-8 right-0">
           {data.map((item, index) => {
-            const maxDataValue = Math.max(...data.map(d => d.value));
-            const maxIndex = data.findIndex(d => d.value === maxDataValue);
             const isHighlighted = maxDataValue > 0 ? index === maxIndex : index === 3;
             const heightPct = (item.value / maxVal) * 100;
             return (
@@ -63,7 +76,7 @@ export const WeeklyChart = ({ data }: { data: { label: string; value: number }[]
   );
 };
 
-export const ExpensesCard = ({ amount, date, percentage }: { amount: string, date: string, percentage: string }) => {
+export const ExpensesCard = ({ amount, date, percentage }: { amount: string, date: string, percentage?: string }) => {
   return (
     <View className="flex-row justify-between items-center p-5 rounded-3xl border border-border mb-8 bg-transparent">
       <View>
@@ -72,13 +85,21 @@ export const ExpensesCard = ({ amount, date, percentage }: { amount: string, dat
       </View>
       <View className="items-end">
         <Text className="text-lg font-bold text-primary">{amount}</Text>
-        <Text className="text-sm text-primary/60 mt-1">{percentage}</Text>
+        {percentage && <Text className="text-sm text-primary/60 mt-1">{percentage}</Text>}
       </View>
     </View>
   );
 };
 
-export const HistoryCard = ({ name, date, price, color, icon }: any) => {
+export interface HistoryCardProps {
+  name: string;
+  date: string;
+  price: string;
+  color?: string;
+  icon: any;
+}
+
+export const HistoryCard = ({ name, date, price, color, icon }: HistoryCardProps) => {
   return (
     <View className="flex-row justify-between items-center p-4 rounded-2xl mb-3" style={{ backgroundColor: color }}>
       <View className="flex-row items-center">
