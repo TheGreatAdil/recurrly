@@ -32,7 +32,7 @@ const Subscriptions = () => {
 
       <View className="subs-search-bar">
         <Image
-          source={icons.menu}
+          source={icons.search}
           className="subs-search-icon"
           tintColor="rgba(0,0,0,0.4)"
         />
@@ -73,7 +73,7 @@ const Subscriptions = () => {
         ListEmptyComponent={
           <View className="subs-empty">
             <Text className="subs-empty-text">
-              No subscriptions match "{search}"
+              {`No subscriptions match "${search}"`}
             </Text>
           </View>
         }

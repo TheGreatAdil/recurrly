@@ -14,6 +14,7 @@ import menu from "@/assets/icons/menu.png";
 import notion from "@/assets/icons/notion.png";
 import openai from "@/assets/icons/openai.png";
 import plus from "@/assets/icons/plus.png";
+import search from "@/assets/icons/search.png";
 import setting from "@/assets/icons/setting.png";
 import spotify from "@/assets/icons/spotify.png";
 import wallet from "@/assets/icons/wallet.png";
@@ -27,6 +28,7 @@ export const icons = {
   back,
   menu,
   plus,
+  search,
   notion,
   dropbox,
   openai,

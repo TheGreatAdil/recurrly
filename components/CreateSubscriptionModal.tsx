@@ -1,6 +1,7 @@
 import { icons } from "@/constants/icons";
 import clsx from "clsx";
 import dayjs from "dayjs";
+import * as Crypto from "expo-crypto";
 import React, { useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -66,6 +67,7 @@ const CreateSubscriptionModal = ({
   const handleSubmit = () => {
     if (!isValid) return;
 
+    const parsedPrice = parseFloat(price);
     const now = dayjs();
     const renewalDate =
       frequency === "Monthly"
@@ -73,9 +75,9 @@ const CreateSubscriptionModal = ({
         : now.add(1, "year").toISOString();
 
     const subscription: Subscription = {
-      id: `custom-${Date.now()}`,
+      id: Crypto.randomUUID(),
       name: name.trim(),
-      price: parseFloat(price),
+      price: parsedPrice,
       currency: "USD",
       billing: frequency,
       category,
